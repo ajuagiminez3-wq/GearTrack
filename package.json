@@ -1,0 +1,29 @@
+{
+  "name": "geartrack-api",
+  "version": "1.0.0",
+  "private": true,
+  "description": "CST-391 GearTrack Milestone 3 Express and MySQL REST API",
+  "main": "dist/server.js",
+  "scripts": {
+    "start": "ts-node src/server.ts",
+    "start:watch": "nodemon --watch src --ext ts --exec ts-node src/server.ts",
+    "build": "tsc",
+    "serve": "node dist/server.js",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^5.1.0",
+    "helmet": "^8.1.0",
+    "mysql2": "^3.15.0"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.0.0",
+    "nodemon": "^3.1.0",
+    "ts-node": "^10.9.2",
+    "typescript": "5.9.3"
+  }
+}
