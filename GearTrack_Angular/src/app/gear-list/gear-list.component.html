@@ -1,0 +1,25 @@
+<div class="d-flex justify-content-between align-items-center gap-2 flex-wrap mb-4">
+ <div><h2 class="headline mb-1">Equipment inventory</h2><p class="muted mb-0">Browse, search, and manage all your gear.</p></div>
+ <a class="btn btn-primary" routerLink="/gear/new">＋ Add Equipment</a>
+</div>
+<div *ngIf="notice" class="alert alert-success" role="status">{{notice}}</div>
+<form (ngSubmit)="loadItems()" class="shadow-card p-3 p-lg-4 mb-4">
+ <div class="row g-3 align-items-end">
+  <div class="col-md-5"><label class="form-label" for="search">Search equipment</label><input class="form-control" id="search" name="search" [(ngModel)]="search" placeholder="Name or brand"></div>
+  <div class="col-md-3"><label class="form-label" for="category">Category</label><select class="form-select" id="category" name="category" [(ngModel)]="categoryId"><option [ngValue]="0">All categories</option><option *ngFor="let cat of categories" [ngValue]="cat.id">{{cat.name}}</option></select></div>
+  <div class="col-md-2"><label class="form-label" for="availability">Availability</label><select class="form-select" id="availability" name="availability" [(ngModel)]="availableFilter"><option value="all">All</option><option value="true">Available</option><option value="false">In use</option></select></div>
+  <div class="col-md-2 d-flex gap-2"><button type="submit" class="btn btn-primary">Search</button><button type="button" class="btn btn-outline-secondary" (click)="clearFilters()">Clear</button></div>
+ </div>
+</form>
+<div *ngIf="loading" class="alert alert-info">Loading equipment from MySQL…</div>
+<div *ngIf="error" class="alert alert-danger">{{error}}</div>
+<div *ngIf="!loading && !error" class="shadow-card overflow-hidden">
+ <div class="px-4 py-3 border-bottom d-flex justify-content-between"><strong>{{items.length}} item(s)</strong><span class="muted small">Live API data</span></div>
+ <div *ngIf="items.length===0" class="p-5 text-center"><h5>No equipment found</h5><p class="muted">Add your first item or clear the filters.</p><a routerLink="/gear/new" class="btn btn-primary">Add equipment</a></div>
+ <div *ngFor="let item of items" class="gear-row">
+  <div class="category-mark" aria-hidden="true">{{categoryIcon(item.categoryName)}}</div>
+  <div class="flex-grow-1" style="min-width:190px"><a [routerLink]="['/gear',item.id]" class="fw-bold">{{item.name}}</a><div class="muted small">{{item.brand}} · {{item.categoryName}} · ID #{{item.id}}</div></div>
+  <div class="text-start text-lg-end"><span class="pill" [class.pill-yes]="item.isAvailable" [class.pill-no]="!item.isAvailable">{{item.isAvailable?'Available':'In use'}}</span><div class="fw-bold mt-1">{{item.purchasePrice | currency:'USD'}}</div></div>
+  <div class="d-flex gap-2 ms-lg-3"><a [routerLink]="['/gear',item.id]" class="btn btn-sm btn-outline-primary">View</a><a [routerLink]="['/gear',item.id,'edit']" class="btn btn-sm btn-outline-secondary">Edit</a><a [routerLink]="['/gear',item.id,'delete']" class="btn btn-sm btn-outline-danger">Delete</a></div>
+ </div>
+</div>

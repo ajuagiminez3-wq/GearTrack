@@ -1,0 +1,8 @@
+<div class="mb-3"><a routerLink="/gear" class="text-decoration-none">← Back to equipment</a></div>
+<div *ngIf="loading" class="alert alert-info">Loading equipment…</div>
+<div *ngIf="error" class="alert alert-danger">{{error}}</div>
+<div *ngIf="item as gear" class="shadow-card p-4 p-lg-5">
+ <div class="mb-3 fs-1" aria-hidden="true">⚠</div><h2 class="headline mb-2">Delete {{gear.name}}?</h2>
+ <p class="muted">This will remove equipment #{{gear.id}} ({{gear.brand}}) from MySQL. This cannot be undone.</p>
+ <div class="d-flex gap-2 flex-wrap"><button type="button" class="btn btn-danger" [disabled]="deleting" (click)="remove()">{{deleting?'Deleting…':'Yes, delete equipment'}}</button><a class="btn btn-outline-secondary" [routerLink]="['/gear',gear.id]">Cancel</a></div>
+</div>

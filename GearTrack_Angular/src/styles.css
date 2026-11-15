@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap');
+:root{--navy:#0b172e;--ink:#16243f;--slate:#66738c;--primary:#1b62d2;--pale:#edf4fd;--border:#e1e8f1;--background:#f7f9fc}
+body{font-family:'DM Sans',system-ui,-apple-system,Segoe UI,sans-serif;background:var(--background);color:var(--ink)}
+.app-hero{background:linear-gradient(105deg,#0b1932,#123b7a);color:#fff}
+.kicker{text-transform:uppercase;font-weight:800;font-size:.69rem;letter-spacing:.16em;color:#b8d3ff}
+.app-hero h1{font-size:clamp(1.8rem,3vw,2.55rem);letter-spacing:-.04em;font-weight:800}
+.site-main{min-height:64vh}
+.navbar-brand{font-weight:800;color:#12418b!important;letter-spacing:-.02em}
+.navbar .nav-link.active{color:#155ac6;font-weight:800}
+.shadow-card{background:#fff;border:1px solid var(--border);border-radius:1.1rem;box-shadow:0 9px 28px rgba(13,31,67,.04)}
+.headline{font-weight:800;letter-spacing:-.035em}
+.muted{color:var(--slate)}
+.btn-primary{background:#1b62d2;border-color:#1b62d2}
+.btn-primary:hover{background:#114aab;border-color:#114aab}
+.btn-outline-primary{color:#1b62d2;border-color:#1b62d2}
+.btn-outline-primary:hover{background:#1b62d2;border-color:#1b62d2}
+.form-label{font-weight:700}
+.field-hint{color:#6f7b90;font-size:.83rem}
+.pill{display:inline-flex;align-items:center;padding:.34rem .65rem;border-radius:99px;font-weight:700;font-size:.76rem}
+.pill-yes{background:#ddf8e8;color:#116539}
+.pill-no{background:#fff1e6;color:#a14612}
+.category-mark{display:flex;align-items:center;justify-content:center;border-radius:.8rem;background:#e8f0fd;color:#215cba;font-size:1.35rem;width:50px;height:50px;flex-shrink:0}
+.btn-icon{border:1px solid var(--border);background:#fff;padding:.4rem .75rem;border-radius:.5rem;color:var(--ink)}
+.gear-row{padding:1rem;border-bottom:1px solid #e9edf4;display:flex;flex-wrap:wrap;align-items:center;gap:1rem}
+.gear-row:last-child{border-bottom:0}
+.gear-row a{text-decoration:none}
+.form-control:focus,.form-select:focus{border-color:#85b5ff;box-shadow:0 0 0 .2rem #a6c9ff50}
+button.nav-link{background:transparent;border:0}

@@ -1,0 +1,21 @@
+<header class="app-hero"><div class="container py-4 py-lg-5">
+  <div class="kicker mb-2">CST-391 • Milestone 4</div>
+  <h1 class="mb-2">GearTrack <span class="fw-normal">Equipment Manager</span></h1>
+  <p class="mb-0" style="color:#cfe0fa">Angular + Bootstrap · Express REST API · MySQL</p>
+</div></header>
+<nav class="navbar navbar-expand-lg bg-white border-bottom sticky-top" aria-label="GearTrack navigation">
+ <div class="container">
+  <a class="navbar-brand" routerLink="/" (click)="closeMenu()">▣ GearTrack</a>
+  <button type="button" class="navbar-toggler" aria-label="Toggle navigation" [attr.aria-expanded]="menuOpen" (click)="menuOpen=!menuOpen"><span class="navbar-toggler-icon"></span></button>
+  <div class="collapse navbar-collapse" [class.show]="menuOpen">
+   <ul class="navbar-nav ms-auto gap-lg-2">
+    <li class="nav-item"><a class="nav-link" routerLink="/" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active" (click)="closeMenu()">Dashboard</a></li>
+    <li class="nav-item"><a class="nav-link" routerLink="/gear" routerLinkActive="active" (click)="closeMenu()">All Equipment</a></li>
+    <li class="nav-item"><a class="nav-link" routerLink="/gear/new" routerLinkActive="active" (click)="closeMenu()">Add Equipment</a></li>
+    <li class="nav-item"><button type="button" class="nav-link" (click)="displayAbout()">About</button></li>
+   </ul>
+  </div>
+ </div>
+</nav>
+<main class="site-main container py-4 py-lg-5"><router-outlet></router-outlet></main>
+<footer class="text-center small text-muted border-top bg-white py-4">CST-391 Milestone 4 · GearTrack · API localhost:5051</footer>

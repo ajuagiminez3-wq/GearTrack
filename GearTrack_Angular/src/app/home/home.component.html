@@ -1,0 +1,15 @@
+<div class="mb-4 d-flex justify-content-between align-items-center flex-wrap gap-3">
+ <div><div class="kicker" style="color:#2864b4">INVENTORY AT A GLANCE</div><h2 class="headline mt-1 mb-1">Your equipment, organized.</h2><p class="muted mb-0">Keep track of cameras, lenses, audio, lighting and more.</p></div>
+ <a class="btn btn-primary btn-lg" routerLink="/gear/new">＋ Add equipment</a>
+</div>
+<div *ngIf="loading" class="alert alert-info">Checking connection to GearTrack API…</div>
+<div *ngIf="error" class="alert alert-danger" role="alert">{{error}}</div>
+<div *ngIf="!loading && !error" class="row g-3 mb-4">
+  <div class="col-md-4"><div class="shadow-card p-4"><div class="muted small">TOTAL EQUIPMENT</div><div class="display-5 fw-bold mt-1">{{items.length}}</div></div></div>
+  <div class="col-md-4"><div class="shadow-card p-4"><div class="muted small">AVAILABLE NOW</div><div class="display-5 fw-bold mt-1">{{availableCount}}</div></div></div>
+  <div class="col-md-4"><div class="shadow-card p-4"><div class="muted small">TOTAL PURCHASE VALUE</div><div class="fs-2 fw-bold mt-2">{{inventoryValue | currency:'USD'}}</div></div></div>
+</div>
+<div class="row g-3">
+ <div class="col-md-6"><div class="shadow-card h-100 p-4"><div class="fs-2 mb-2">▤</div><h4>Browse equipment</h4><p class="muted">Find gear, check availability, and open its details.</p><a class="btn btn-outline-primary" routerLink="/gear">Open equipment list</a></div></div>
+ <div class="col-md-6"><div class="shadow-card h-100 p-4"><div class="fs-2 mb-2">＋</div><h4>Create a record</h4><p class="muted">Add an item to your live MySQL inventory using the API.</p><a class="btn btn-outline-primary" routerLink="/gear/new">Create an item</a></div></div>
+</div>

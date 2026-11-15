@@ -1,0 +1,15 @@
+<div class="mb-3"><a routerLink="/gear" class="text-decoration-none">← Back to equipment</a></div>
+<div *ngIf="loading" class="alert alert-info">Loading equipment details…</div>
+<div *ngIf="error" class="alert alert-danger">{{error}}</div>
+<div *ngIf="item as gear" class="shadow-card p-4 p-lg-5">
+ <div class="d-flex justify-content-between flex-wrap align-items-start gap-3 border-bottom pb-3 mb-4">
+  <div><div class="muted small mb-1">EQUIPMENT #{{gear.id}}</div><h2 class="headline mb-2">{{gear.name}}</h2><div class="muted">{{gear.brand}} · {{gear.categoryName}}</div></div>
+  <span class="pill" [class.pill-yes]="gear.isAvailable" [class.pill-no]="!gear.isAvailable">{{gear.isAvailable?'Available':'In use'}}</span>
+ </div>
+ <div class="row g-4">
+  <div class="col-md-6"><div class="muted small">Purchase price</div><div class="fs-3 fw-bold">{{gear.purchasePrice | currency:'USD'}}</div></div>
+  <div class="col-md-6"><div class="muted small">Purchase date</div><div class="fs-5 fw-semibold">{{gear.purchaseDate || 'Not specified'}}</div></div>
+  <div class="col-12"><div class="muted small">Notes</div><div class="mt-1" style="white-space:pre-line">{{gear.notes || 'No notes for this item.'}}</div></div>
+ </div>
+ <div class="d-flex gap-2 flex-wrap mt-4 pt-4 border-top"><a [routerLink]="['/gear',gear.id,'edit']" class="btn btn-primary">Edit equipment</a><a [routerLink]="['/gear',gear.id,'delete']" class="btn btn-outline-danger">Delete equipment</a><a routerLink="/gear" class="btn btn-outline-secondary">View all equipment</a></div>
+</div>
